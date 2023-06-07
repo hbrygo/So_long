@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 11:21:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:45 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/04 11:12:39 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/04/05 16:07:29 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_is_new_line(char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	char	*str;
+	size_t	i;
+	size_t	s_len;
 
 	i = 0;
+	s_len = 0;
+	while (start < ft_strlen(s) && (s_len < len && s[start + s_len]))
+		s_len++;
+	str = malloc(sizeof(char) * (s_len + 1));
 	if (!str)
-		return (0);
-	while (str[i])
+		return (NULL);
+	if (start < ft_strlen(s))
 	{
-		if (str[i] == '\n')
-			return (1);
-		i++;
+		while (i < len && s[i + start])
+		{
+			str[i] = s[i + start];
+			i++;
+		}
 	}
-	return (0);
-}
-
-char	*ft_set_stack(char **s)
-{
-	free(*s);
-	*s = NULL;
-	return (NULL);
-}
-
-char	*ft_join(char *stack, char **ret, char *buff)
-{
-	*ret = stack;
-	stack = ft_strjoin(*ret, buff);
-	return (stack);
+	str[i] = '\0';
+	return (str);
 }

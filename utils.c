@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:30:13 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 13:53:13 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:03:38 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,30 @@ void	*ft_map_to_tab(char *map, t_struct *data, t_window *image)
 {
 	int		fd;
 	int		i;
+	char	*temp;
+	char	*final;
 
 	i = 0;
-	data->tab = malloc(sizeof(char *) * ft_len_line(map));
-	if (!data->tab)
-		ft_exit(image);
+	final = NULL;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		exit(EXIT_FAILURE);
-	data->tab[0] = get_next_line(fd);
+	temp = get_next_line(fd);
+	if (!temp)
+		ft_exit(image);
 	data->y = ft_strlen(data->tab[0]);
 	while (data->tab[i] != 0)
 	{
-		if (ft_verif_wrong_char(data->tab[i]) == 0)
+		if (ft_verif_wrong_char(temp) == 0)
 			ft_error(image);
-		data->tab[++i] = get_next_line(fd);
+		image->
+		temp = get_next_line(fd);
+		if (!temp)
+			ft_exit(image);
 	}
+	data->tab = ft_split(final, '\n');
+	if (!data->tab)
+		ft_exit(image);
 	data->x = i;
 	close(fd);
 	if (ft_check(data) == 0)

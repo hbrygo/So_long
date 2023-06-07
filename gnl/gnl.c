@@ -6,37 +6,11 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:39:50 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/05 10:17:21 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:53:21 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		i;
-	int		j;
-	char	*str;
-	int		len1;
-	int		len2;
-
-	i = -1;
-	j = -1;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!str)
-	{
-		free(s1);
-		return (NULL);
-	}
-	while (++i < len1)
-		str[i] = s1[i];
-	while (++j < len2)
-		str[i + j] = s2[j];
-	str[i + j] = '\0';
-	return (str);
-}
 
 char	*ft_start(char *s)
 {

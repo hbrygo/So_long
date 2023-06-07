@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 11:21:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:45 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/04 11:11:40 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/04/11 15:04:50 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_is_new_line(char *str)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
+	size_t		i;
+	const char	*str1;
+	const char	*str2;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	str1 = s1;
+	str2 = s2;
+	while (i < n)
 	{
-		if (str[i] == '\n')
-			return (1);
+		if (str1[i] != str2[i])
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		i++;
 	}
 	return (0);
 }
 
-char	*ft_set_stack(char **s)
-{
-	free(*s);
-	*s = NULL;
-	return (NULL);
-}
-
-char	*ft_join(char *stack, char **ret, char *buff)
-{
-	*ret = stack;
-	stack = ft_strjoin(*ret, buff);
-	return (stack);
-}
+//Fonction qui renvoie la 1ere difference entre 's1' et 's2' sur 'n' charactere

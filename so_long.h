@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:24 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 10:53:17 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:54:12 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include "gnl/get_next_line.h"
 
 typedef struct s_struct
@@ -66,7 +68,6 @@ typedef struct s_window
 
 int		key_press(int keycode, t_window *image);
 void	ft_set_image(t_window *image, t_struct *data);
-int		ft_strlen(char *str);
 void	*ft_error(t_window *image);
 void	*ft_map_to_tab(char *map, t_struct *data, t_window *image);
 int		ft_check(t_struct *data);

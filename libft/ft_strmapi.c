@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 11:21:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:45 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/04 11:12:28 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/04/04 14:40:56 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_is_new_line(char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	char			*str;
+	unsigned int	i;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!str)
-		return (0);
-	while (str[i])
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == '\n')
-			return (1);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
-}
-
-char	*ft_set_stack(char **s)
-{
-	free(*s);
-	*s = NULL;
-	return (NULL);
-}
-
-char	*ft_join(char *stack, char **ret, char *buff)
-{
-	*ret = stack;
-	stack = ft_strjoin(*ret, buff);
-	return (stack);
+	str[i] = '\0';
+	return (str);
 }

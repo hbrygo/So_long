@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:06:58 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 13:41:20 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:55:28 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_check_size(t_struct *data)
 {
-	int	len;
+	size_t	len;
 	int	i;
 
 	i = 1;

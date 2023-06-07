@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 11:21:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:45 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 16:57:45 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/04/13 14:18:18 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_is_new_line(char *str)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	i = 0;
-	if (!str)
+	if (!lst)
 		return (0);
-	while (str[i])
+	i = 0;
+	while (lst)
 	{
-		if (str[i] == '\n')
-			return (1);
+		lst = lst->next;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-char	*ft_set_stack(char **s)
-{
-	free(*s);
-	*s = NULL;
-	return (NULL);
-}
-
-char	*ft_join(char *stack, char **ret, char *buff)
-{
-	*ret = stack;
-	stack = ft_strjoin(*ret, buff);
-	return (stack);
-}
+//Fonction qui renvoie le nombre de noeud qu'il y a dans une list

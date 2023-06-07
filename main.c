@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:33 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 10:53:08 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:28:00 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,8 @@ int	main(int argc, char **argv)
 	set_spawn(&image, &data);
 	image.window = mlx_new_window(image.mlx,
 			data.map_height * 32, data.map_width * 32, "So_long");
+	if (!image.window)
+		ft_exit(&image);
 	ft_set_image(&image, &data);
 	mlx_put_image_to_window(image.mlx, image.window,
 		image.player_front, image.player_x * 32, image.player_y * 32);

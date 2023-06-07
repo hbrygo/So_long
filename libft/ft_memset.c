@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 11:21:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:45 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/04 11:11:58 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/04/11 15:06:12 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_is_new_line(char *str)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	str = b;
+	while (i < len)
 	{
-		if (str[i] == '\n')
-			return (1);
+		str[i] = c;
 		i++;
 	}
-	return (0);
+	return (str);
 }
 
-char	*ft_set_stack(char **s)
-{
-	free(*s);
-	*s = NULL;
-	return (NULL);
-}
-
-char	*ft_join(char *stack, char **ret, char *buff)
-{
-	*ret = stack;
-	stack = ft_strjoin(*ret, buff);
-	return (stack);
-}
+//Fonction qui met les 'len' premier characters de 'b' a la valeur de 'c'

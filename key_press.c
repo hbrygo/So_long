@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:55:52 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 13:41:53 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:50:15 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	key_press_down(t_struct *data, t_window *image)
 			(data->collectible)--;
 		data->tab[image->player_y][image->player_x] = 'P';
 		data->input++;
-		printf("%d\n", image->struct_1->input);
+		ft_printf("%d\n", image->struct_1->input);
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
@@ -50,7 +50,7 @@ static void	key_press_up(t_struct *data, t_window *image)
 			(data->collectible)--;
 		data->tab[image->player_y][image->player_x] = 'P';
 		data->input++;
-		printf("%d\n", image->struct_1->input);
+		ft_printf("%d\n", image->struct_1->input);
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
@@ -76,7 +76,7 @@ static void	key_press_right(t_struct *data, t_window *image)
 			(data->collectible)--;
 		data->tab[image->player_y][image->player_x] = 'P';
 		data->input++;
-		printf("%d\n", image->struct_1->input);
+		ft_printf("%d\n", image->struct_1->input);
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
@@ -102,7 +102,7 @@ static void	key_press_left(t_struct *data, t_window *image)
 			(data->collectible)--;
 		data->tab[image->player_y][image->player_x] = 'P';
 		data->input++;
-		printf("%d\n", image->struct_1->input);
+		ft_printf("%d\n", image->struct_1->input);
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
@@ -120,13 +120,13 @@ int	key_press(int keycode, t_window *image)
 {
 	if (keycode == 13 || keycode == 126)
 		key_press_up(image->struct_1, image);
-	if (keycode == 1 || keycode == 125)
+	else if (keycode == 1 || keycode == 125)
 		key_press_down(image->struct_1, image);
-	if (keycode == 0 || keycode == 123)
+	else if (keycode == 0 || keycode == 123)
 		key_press_left(image->struct_1, image);
-	if (keycode == 2 || keycode == 124)
+	else if (keycode == 2 || keycode == 124)
 		key_press_right(image->struct_1, image);
-	if (keycode == 53)
+	else if (keycode == 53)
 		ft_exit(image);
 	return (1);
 }
