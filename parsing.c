@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:06:58 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 10:17:48 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:41:20 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_check_size(t_struct *data)
+static int	ft_check_size(t_struct *data)
 {
 	int	len;
 	int	i;
@@ -32,7 +32,7 @@ int	ft_check_size(t_struct *data)
 	return (1);
 }
 
-void	ft_check_path(int i, int j, t_struct *data)
+static void	ft_check_path(int i, int j, t_struct *data)
 {
 	if (i < 0 || j < 0 || j >= data->y || i >= data->x)
 		data->error = 1;
@@ -59,7 +59,7 @@ void	ft_check_path(int i, int j, t_struct *data)
 	ft_check_path(i, j - 1, data);
 }
 
-int	ft_check_items(char **line, t_struct *data)
+static int	ft_check_items(char **line, t_struct *data)
 {
 	int	i;
 	int	j;

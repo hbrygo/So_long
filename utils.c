@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:30:13 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 11:10:31 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:39:52 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_error(t_window *image)
 	return (0);
 }
 
-int	ft_verif_wrong_char(char *str)
+static int	ft_verif_wrong_char(char *str)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ int	ft_verif_wrong_char(char *str)
 	return (1);
 }
 
-int	ft_len_line(char *map)
+static int	ft_len_line(char *map)
 {
 	int		fd;
 	int		i;

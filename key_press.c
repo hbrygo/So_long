@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:55:52 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/06 13:36:11 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:41:53 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	key_press_down(t_struct *data, t_window *image)
+static void	key_press_down(t_struct *data, t_window *image)
 {
 	if (data->tab[image->player_y + 1][image->player_x] == 'M')
 		ft_exit(image);
@@ -38,7 +38,7 @@ void	key_press_down(t_struct *data, t_window *image)
 			image->player_front_2, image->player_x * 32, image->player_y * 32);
 }
 
-void	key_press_up(t_struct *data, t_window *image)
+static void	key_press_up(t_struct *data, t_window *image)
 {
 	if (data->tab[image->player_y - 1][image->player_x] == 'M')
 		ft_exit(image);
@@ -64,7 +64,7 @@ void	key_press_up(t_struct *data, t_window *image)
 			image->player_back_2, image->player_x * 32, image->player_y * 32);
 }
 
-void	key_press_right(t_struct *data, t_window *image)
+static void	key_press_right(t_struct *data, t_window *image)
 {
 	if (data->tab[image->player_y][image->player_x + 1] == 'M')
 		ft_exit(image);
@@ -90,7 +90,7 @@ void	key_press_right(t_struct *data, t_window *image)
 			image->player_right_2, image->player_x * 32, image->player_y * 32);
 }
 
-void	key_press_left(t_struct *data, t_window *image)
+static void	key_press_left(t_struct *data, t_window *image)
 {
 	if (data->tab[image->player_y][image->player_x - 1] == 'M')
 		ft_exit(image);
