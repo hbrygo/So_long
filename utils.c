@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:30:13 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 13:39:52 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:53:13 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,5 @@ int	ft_exit(t_window *image)
 	mlx_destroy_image(image->mlx, image->enemy);
 	if (image->window)
 		mlx_destroy_window(image->mlx, image->window);
-	system("leaks so_long");
 	exit(0);
 }
