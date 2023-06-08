@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:11:20 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/11 14:54:47 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:05:12 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	i = -1;
 	str = malloc(size * nmemb);
 	if (!str)
-		return (NULL);
+		return (0);
 	ft_bzero(str, size * nmemb);
 	return (str);
 }

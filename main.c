@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:33 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:28:00 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:58:50 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,27 @@ static void	ft_set_player(t_window *image)
 	image->player_front = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_face.xpm", &image->width, &image->height);
 	if (image->player_front == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_front_2 = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_face_2.xpm", &image->width, &image->height);
 	if (image->player_front_2 == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_left = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_gauche.xpm", &image->width, &image->height);
 	if (image->player_left == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_left_2 = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_gauche_2.xpm", &image->width, &image->height);
 	if (image->player_left_2 == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_right = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_droite.xpm", &image->width, &image->height);
 	if (image->player_right == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_right_2 = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_droite_2.xpm", &image->width, &image->height);
 	if (image->player_right_2 == NULL)
-		exit(0);
+		ft_exit(image);
 }
 
 static void	ft_set_sprite(t_window *image)
@@ -64,23 +64,23 @@ static void	ft_set_sprite(t_window *image)
 	image->green = mlx_xpm_file_to_image(image->mlx,
 			"image/sol_vert.xpm", &image->width, &image->height);
 	if (image->green == NULL)
-		exit(0);
+		ft_exit(image);
 	image->white = mlx_xpm_file_to_image(image->mlx,
 			"image/sol_blanc.xpm", &image->width, &image->height);
 	if (image->white == NULL)
-		exit(0);
+		ft_exit(image);
 	image->exit_close = mlx_xpm_file_to_image(image->mlx,
 			"image/escalier_ferme.xpm", &image->width, &image->height);
 	if (image->exit_close == NULL)
-		exit(0);
+		ft_exit(image);
 	image->exit_open = mlx_xpm_file_to_image(image->mlx,
 			"image/escalier.xpm", &image->width, &image->height);
 	if (image->exit_close == NULL)
-		exit(0);
+		ft_exit(image);
 	image->wall = mlx_xpm_file_to_image(image->mlx,
 			"image/tombe.xpm", &image->width, &image->height);
 	if (image->wall == NULL)
-		exit(0);
+		ft_exit(image);
 	ft_set_player(image);
 }
 
@@ -88,7 +88,7 @@ static void	ft_init_images(t_struct *data, t_window *image)
 {
 	image->mlx = mlx_init();
 	if (!image->mlx)
-		exit(0);
+		ft_exit(image);
 	image->player_x = 0;
 	image->player_y = 0;
 	image->exit_x = 0;
@@ -97,19 +97,19 @@ static void	ft_init_images(t_struct *data, t_window *image)
 	image->item = mlx_xpm_file_to_image(image->mlx,
 			"image/collectible.xpm", &image->width, &image->height);
 	if (image->item == NULL)
-		exit(0);
+		ft_exit(image);
 	image->enemy = mlx_xpm_file_to_image(image->mlx,
 			"image/enemi.xpm", &image->width, &image->height);
 	if (image->enemy == NULL)
-		exit(0);
+		ft_exit(image);
 		image->player_back = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_dos.xpm", &image->width, &image->height);
 	if (image->player_back == NULL)
-		exit(0);
+		ft_exit(image);
 	image->player_back_2 = mlx_xpm_file_to_image(image->mlx,
 			"image/perso_dos_2.xpm", &image->width, &image->height);
 	if (image->player_back_2 == NULL)
-		exit(0);
+		ft_exit(image);
 	ft_init_data(data, image);
 }
 

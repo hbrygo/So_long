@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:06:58 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:55:28 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:09:52 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_check_size(t_struct *data)
 {
 	size_t	len;
-	int	i;
+	int		i;
 
 	i = 1;
 	len = ft_strlen(data->tab[0]);
@@ -25,9 +25,9 @@ static int	ft_check_size(t_struct *data)
 			return (0);
 		i++;
 	}
-	if (len != ft_strlen(data->tab[i]) + 1)
+	if (len != ft_strlen(data->tab[i]))
 		return (0);
-	data->map_height = len - 1;
+	data->map_height = len;
 	data->map_width = i + 1;
 	return (1);
 }

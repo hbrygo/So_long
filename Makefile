@@ -4,6 +4,7 @@ SRCS    =	main.c \
 			gnl/gnl.c \
 			gnl/gnl_utils.c \
 			set_image.c \
+			exit.c \
 			key_press.c
 			
 OBJ    = ${SRCS:.c=.o}
@@ -21,7 +22,7 @@ CFLAGS    = -Wall -Wextra -Werror -fsanitize=address -g
 	$(CC) ${CFLAGS} -Imlx -c $< -o $@
 
 $(NAME): $(OBJ)
-	make -C $(LIBFTDIR) 
+	make -C $(LIBFTDIR)
 	make -C${PRINTFDIR}
 	$(CC) $(OBJ) ${CFLAGS} ${LIBFT} ${PRINTF} -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
@@ -38,7 +39,5 @@ fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
-
-
 
 .PHONY: all clean fclean re

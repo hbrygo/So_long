@@ -6,18 +6,11 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:30:13 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 17:03:38 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:10:03 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	*ft_error(t_window *image)
-{
-	printf("Error\n");
-	ft_exit(image);
-	return (0);
-}
 
 static int	ft_verif_wrong_char(char *str)
 {
@@ -35,87 +28,45 @@ static int	ft_verif_wrong_char(char *str)
 	return (1);
 }
 
-static int	ft_len_line(char *map)
+static void	ft_pars(int fd, t_window *image, t_struct *data)
 {
-	int		fd;
+	char	*final;
+	char	*temp;
 	int		i;
-	char	*str;
 
 	i = 0;
-	fd = open(map, O_RDONLY);
-	if (fd == -1)
-		exit(EXIT_FAILURE);
-	str = get_next_line(fd);
-	while (str != 0)
+	final = NULL;
+	temp = get_next_line(fd);
+	if (!temp)
+		ft_exit(image);
+	final = ft_strjoin(final, temp);
+	data->y = ft_strlen(temp);
+	while (temp != 0)
 	{
-		free(str);
-		str = get_next_line(fd);
 		i++;
+		if (ft_verif_wrong_char(temp) == 0)
+			ft_error(image);
+		free(temp);
+		temp = get_next_line(fd);
+		final = ft_strjoin(final, temp);
 	}
-	close(fd);
-	i++;
-	return (i);
+	data->tab = ft_split(final, '\n');
+	free(final);
+	if (!data->tab)
+		ft_exit(image);
+	data->x = i;
 }
 
 void	*ft_map_to_tab(char *map, t_struct *data, t_window *image)
 {
 	int		fd;
-	int		i;
-	char	*temp;
-	char	*final;
 
-	i = 0;
-	final = NULL;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		exit(EXIT_FAILURE);
-	temp = get_next_line(fd);
-	if (!temp)
 		ft_exit(image);
-	data->y = ft_strlen(data->tab[0]);
-	while (data->tab[i] != 0)
-	{
-		if (ft_verif_wrong_char(temp) == 0)
-			ft_error(image);
-		image->
-		temp = get_next_line(fd);
-		if (!temp)
-			ft_exit(image);
-	}
-	data->tab = ft_split(final, '\n');
-	if (!data->tab)
-		ft_exit(image);
-	data->x = i;
+	ft_pars(fd, image, data);
 	close(fd);
 	if (ft_check(data) == 0)
 		return (ft_error(image));
 	return (data);
-}
-
-int	ft_exit(t_window *image)
-{
-	int	i;
-
-	i = -1;
-	while (image->struct_1->tab && ++i < image->struct_1->x)
-		free(image->struct_1->tab[i]);
-	free(image->struct_1->tab);
-	mlx_destroy_image(image->mlx, image->player_back);
-	mlx_destroy_image(image->mlx, image->player_back_2);
-	mlx_destroy_image(image->mlx, image->player_front);
-	mlx_destroy_image(image->mlx, image->player_front_2);
-	mlx_destroy_image(image->mlx, image->player_right);
-	mlx_destroy_image(image->mlx, image->player_right_2);
-	mlx_destroy_image(image->mlx, image->player_left);
-	mlx_destroy_image(image->mlx, image->player_left_2);
-	mlx_destroy_image(image->mlx, image->wall);
-	mlx_destroy_image(image->mlx, image->exit_close);
-	mlx_destroy_image(image->mlx, image->exit_open);
-	mlx_destroy_image(image->mlx, image->green);
-	mlx_destroy_image(image->mlx, image->white);
-	mlx_destroy_image(image->mlx, image->item);
-	mlx_destroy_image(image->mlx, image->enemy);
-	if (image->window)
-		mlx_destroy_window(image->mlx, image->window);
-	exit(0);
 }

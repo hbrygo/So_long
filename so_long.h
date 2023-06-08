@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:24 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:54:12 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:08:02 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
@@ -73,6 +72,5 @@ void	*ft_map_to_tab(char *map, t_struct *data, t_window *image);
 int		ft_check(t_struct *data);
 void	set_spawn(t_window *image, t_struct *data);
 int		ft_exit(t_window *image);
-char	*ft_itoa(int n);
 
 #endif

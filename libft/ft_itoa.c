@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:11:35 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/11 15:13:28 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:05:41 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static char	*ft_is_special(int n)
 {
 	char	*str;
 
-	str = NULL;
+	str = 0;
 	if (n == 0)
 	{
 		str = ft_strdup("0");
 		if (!str)
-			return (NULL);
+			return (0);
 	}
 	if (n == -2147483648)
 	{
 		str = ft_strdup("-2147483648");
 		if (!str)
-			return (NULL);
+			return (0);
 	}
 	return (str);
 }
@@ -95,7 +95,7 @@ char	*ft_itoa(int n)
 	}
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
-		return (NULL);
+		return (0);
 	str[i] = '\0';
 	i--;
 	if (n < 0)

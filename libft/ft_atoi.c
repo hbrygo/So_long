@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:27:21 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/27 19:06:42 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:49:04 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,4 @@ int	ft_atoi(const char *str)
 		last = result;
 	}
 	return (result * sign);
-}
-
-//Fonction qui convertit un int en char en faisant - 48
-#include <stdio.h>
-#include <string.h>
-
-int main(void)
-{
-	long long i = LONG_MAX;
-
-	printf("%d\n", ft_atoi((const char *)i));
-	printf("%d\n", atoi(""));
 }

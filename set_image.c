@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:43:37 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 11:03:00 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:09:58 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_set_image(t_window *image, t_struct *data)
 	char	*temp;
 
 	x = 0;
-	while (x < data->map_width)
+	while (x < data->x)
 	{
 		y = -1;
 		while (++y < data->map_height)

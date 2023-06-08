@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:12:09 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/10 15:55:07 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:05:28 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*ft_word(char *str, char charset)
 	i = 0;
 	word = (char *)malloc(sizeof(char) * (len_word + 1));
 	if (!word)
-		return (NULL);
+		return (0);
 	while (i < len_word)
 	{
 		word[i] = str[i];
@@ -64,7 +64,7 @@ static char	*ft_put_word(char *str, char c, int i, char **string)
 			free(string[i]);
 			i--;
 		}
-		return (NULL);
+		return (0);
 	}
 	return (string[i]);
 }
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	str = (char *)s;
 	strings = (char **)malloc(sizeof(char *) * (count_strings(str, c) + 1));
 	if (!strings)
-		return (NULL);
+		return (0);
 	while (*str != '\0')
 	{
 		while (*str && *str == c)
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 		if (*str)
 		{
 			if (ft_set_word(strings, str, i, c) == 0)
-				return (NULL);
+				return (0);
 			i++;
 		}
 		while (*str && *str != c)

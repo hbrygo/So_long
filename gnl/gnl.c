@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:39:50 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:53:21 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:04:36 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ char	*get_next_line(int fd)
 		stack = ft_join(stack, &ret, buff);
 		if (!stack)
 			return (NULL);
-		free(ret);
 	}
 	ret = ft_start(stack);
 	if (!ret)
