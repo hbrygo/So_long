@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_image.c                                        :+:      :+:    :+:   */
+/*   set_image_in_game.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:43:37 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/10 20:23:37 by hugo             ###   ########.fr       */
+/*   Created: 2023/06/17 14:35:58 by hugo              #+#    #+#             */
+/*   Updated: 2023/06/17 15:03:27 by hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_set_sprite(t_window *image, t_struct *data, int y, int x)
+static void	ft_set_sprite_in_game(t_window *image, t_struct *data, int y, int x)
 {
-	if ((y + x) % 2 == 0)
+	if ((y + x) % 2 == 0 && (data->tab[x][y] == 2 || data->tab[x][y] == 'P'))
 		mlx_put_image_to_window(image->mlx,
 			image->window, image->white, 32 * y, 32 * x);
-	else
+	else if (data->tab[x][y] == 2 || data->tab[x][y] == 'P')
 		mlx_put_image_to_window(image->mlx,
 			image->window, image->green, 32 * y, 32 * x);
-	if (data->tab[x][y] == '1')
+	else
+		mlx_put_image_to_window(image->mlx,
+			image->window, image->black, 32 * y, 32 * x);
+	if (data->tab[x][y] == '1' && data->tab[x][y] == 2)
 		mlx_put_image_to_window(image->mlx,
 			image->window, image->wall, y * 32, x * 32);
 	else if (data->tab[x][y] == 'c')
 		mlx_put_image_to_window(image->mlx,
 			image->window, image->item, y * 32, x * 32);
-	else if (data->tab[x][y] == 'M')
+	else if (data->tab[x][y] == 'M' && data->tab[x][y] == 2)
 		mlx_put_image_to_window(image->mlx,
 			image->window, image->enemy, y * 32, x * 32);
 }
 
-void	ft_set_image(t_window *image, t_struct *data)
+void	ft_set_image_in_game(t_window *image, t_struct *data)
 {
 	int		y;
 	int		x;
@@ -42,7 +45,7 @@ void	ft_set_image(t_window *image, t_struct *data)
 	{
 		y = -1;
 		while (++y < data->map_height)
-			ft_set_sprite(image, data, y, x);
+			ft_set_sprite_in_game(image, data, y, x);
 		x++;
 	}
 	if (data->collectible == 0)
@@ -57,33 +60,4 @@ void	ft_set_image(t_window *image, t_struct *data)
 	mlx_string_put(image->mlx, image->window, 64, 30, 0xFF0000, temp);
 	mlx_string_put(image->mlx, image->window, 0, 30, 0xFF0000, "Score: ");
 	free(temp);
-}
-
-void	set_spawn(t_window *image, t_struct *data)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (data->tab[++i])
-	{
-		j = 0;
-		while (data->tab[i][j] && data->tab[i][j] != 'P')
-			j++;
-		if (data->tab[i][j] == 'P')
-			break ;
-	}
-	image->player_x = j;
-	image->player_y = i;
-	i = -1;
-	while (data->tab[++i])
-	{
-		j = 0;
-		while (data->tab[i][j] && data->tab[i][j] != 'e')
-			j++;
-		if (data->tab[i][j] == 'e')
-			break ;
-	}
-	image->exit_x = j;
-	image->exit_y = i;
 }

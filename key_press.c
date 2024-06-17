@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:55:52 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/08 11:09:44 by hubrygo          ###   ########.fr       */
+/*   Updated: 2024/02/21 16:09:27 by hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	key_press_down(t_struct *data, t_window *image)
 		ft_exit(image);
 	if (data->tab[image->player_y + 1][image->player_x] != '1')
 	{
-		data->tab[image->player_y][image->player_x] = '2';
+		data->tab[image->player_y][image->player_x] = 2;
 		(image->player_y)++;
 		if (data->tab[image->player_y][image->player_x] == 'c')
 			(data->collectible)--;
@@ -28,8 +28,11 @@ static void	key_press_down(t_struct *data, t_window *image)
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
+	{
+		ft_printf("succes\n");
 		ft_exit(image);
-	ft_set_image(image, data);
+	}
+	ft_set_image_in_game(image, data);
 	if ((image->player_y + image->player_x) % 2 == 0)
 		mlx_put_image_to_window(image->mlx, image->window,
 			image->player_front, image->player_x * 32, image->player_y * 32);
@@ -44,7 +47,7 @@ static void	key_press_up(t_struct *data, t_window *image)
 		ft_exit(image);
 	if (data->tab[image->player_y - 1][image->player_x] != '1')
 	{
-		data->tab[image->player_y][image->player_x] = '0';
+		data->tab[image->player_y][image->player_x] = 2;
 		(image->player_y)--;
 		if (data->tab[image->player_y][image->player_x] == 'c')
 			(data->collectible)--;
@@ -54,8 +57,11 @@ static void	key_press_up(t_struct *data, t_window *image)
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
+	{
+		ft_printf("succes\n");
 		ft_exit(image);
-	ft_set_image(image, data);
+	}
+	ft_set_image_in_game(image, data);
 	if ((image->player_y + image->player_x) % 2 == 0)
 		mlx_put_image_to_window(image->mlx, image->window,
 			image->player_back, image->player_x * 32, image->player_y * 32);
@@ -70,7 +76,7 @@ static void	key_press_right(t_struct *data, t_window *image)
 		ft_exit(image);
 	if (data->tab[image->player_y][image->player_x + 1] != '1')
 	{
-		data->tab[image->player_y][image->player_x] = '0';
+		data->tab[image->player_y][image->player_x] = 2;
 		(image->player_x)++;
 		if (data->tab[image->player_y][image->player_x] == 'c')
 			(data->collectible)--;
@@ -80,8 +86,11 @@ static void	key_press_right(t_struct *data, t_window *image)
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
+	{
+		ft_printf("succes\n");
 		ft_exit(image);
-	ft_set_image(image, data);
+	}
+	ft_set_image_in_game(image, data);
 	if ((image->player_y + image->player_x) % 2 == 0)
 		mlx_put_image_to_window(image->mlx, image->window,
 			image->player_right, image->player_x * 32, image->player_y * 32);
@@ -96,7 +105,7 @@ static void	key_press_left(t_struct *data, t_window *image)
 		ft_exit(image);
 	if (data->tab[image->player_y][image->player_x - 1] != '1')
 	{
-		data->tab[image->player_y][image->player_x] = '0';
+		data->tab[image->player_y][image->player_x] = 2;
 		(image->player_x)--;
 		if (data->tab[image->player_y][image->player_x] == 'c')
 			(data->collectible)--;
@@ -106,8 +115,11 @@ static void	key_press_left(t_struct *data, t_window *image)
 	}
 	if (image->player_y == image->exit_y
 		&& image->player_x == image->exit_x && data->collectible == 0)
+	{
+		ft_printf("succes\n");
 		ft_exit(image);
-	ft_set_image(image, data);
+	}
+	ft_set_image_in_game(image, data);
 	if ((image->player_y + image->player_x) % 2 == 0)
 		mlx_put_image_to_window(image->mlx, image->window,
 			image->player_left, image->player_x * 32, image->player_y * 32);

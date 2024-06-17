@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:33 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/08 10:58:50 by hubrygo          ###   ########.fr       */
+/*   Updated: 2024/02/21 16:02:43 by hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ static void	ft_init_images(t_struct *data, t_window *image)
 	image->exit_x = 0;
 	image->exit_y = 0;
 	ft_set_sprite(image);
+	image->black = mlx_xpm_file_to_image(image->mlx,
+			"image/sol_noir.xpm", &image->width, &image->height);
 	image->item = mlx_xpm_file_to_image(image->mlx,
 			"image/collectible.xpm", &image->width, &image->height);
 	if (image->item == NULL)

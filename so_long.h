@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:23:24 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/06/08 11:08:02 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/06/17 14:53:20 by hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
-# include <mlx.h>
+# include "minilib/mlx.h"
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
@@ -41,6 +41,7 @@ typedef struct s_window
 {
 	void		*green;
 	void		*white;
+	void		*black;
 	void		*wall;
 	void		*player_front;
 	void		*player_front_2;
@@ -72,5 +73,6 @@ void	*ft_map_to_tab(char *map, t_struct *data, t_window *image);
 int		ft_check(t_struct *data);
 void	set_spawn(t_window *image, t_struct *data);
 int		ft_exit(t_window *image);
+void	ft_set_image_in_game(t_window *image, t_struct *data);
 
 #endif
